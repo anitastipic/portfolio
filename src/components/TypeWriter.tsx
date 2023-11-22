@@ -1,13 +1,13 @@
-import React, {useEffect, useState} from "react";
+import {useEffect, useState} from "react";
 
-interface TypeWriterProps {
+type TypeWriterProps = {
     text: string;
     typingDelay?: number;
     className?: string;
     onComplete?: () => void;
 }
 
-const TypeWriter: React.FC<TypeWriterProps> = ({text, typingDelay = 100, className = '', onComplete}) => {
+export default function TypeWriter({text, typingDelay = 100, className = '', onComplete}: TypeWriterProps)  {
     const [displayedText, setDisplayedText] = useState('');
 
     useEffect(() => {
@@ -31,4 +31,3 @@ const TypeWriter: React.FC<TypeWriterProps> = ({text, typingDelay = 100, classNa
         <div className={className}>{displayedText}</div>
     )
 }
-export default TypeWriter
