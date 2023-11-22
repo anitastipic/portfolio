@@ -1,6 +1,4 @@
-import React from "react";
-
-const HomeLogo2: React.FC = () => {
+export default function HomeLogo2() {
     return (
         <div className="HomeLogoContainer h-[95vh] w-auto flex flex-col justify-center items-center">
             <video className="h-[55vh] w-auto mb-24" controls={false} loop={false} autoPlay={true} muted={true} src={"/ASlogo.mp4"}></video>
@@ -13,4 +11,3 @@ const HomeLogo2: React.FC = () => {
 
     )
 }
-export default HomeLogo2

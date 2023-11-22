@@ -1,9 +1,8 @@
-import React from "react";
 import Navbar from "./Navbar.tsx";
 import HomeLogo2 from "./HomeLogo2.tsx";
 import HardFacts from "./HardFacts.tsx";
 
-const Home: React.FC = () => {
+export default function Home() {
     return (
         <div className="bg-black">
             <Navbar/>
@@ -15,4 +14,3 @@ const Home: React.FC = () => {
         </div>
     )
 }
-export default Home;

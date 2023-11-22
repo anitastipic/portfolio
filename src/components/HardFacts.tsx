@@ -1,7 +1,7 @@
-import React, {useState} from "react";
+import {useState} from "react";
 import TypeWriter from "./TypeWriter.tsx";
 
-const HardFacts: React.FC = () => {
+export default function HardFacts() {
     const [showSecond, setShowSecond] = useState(false);
     const [showThird, setShowThird] = useState(false);
     const [showFourth, setShowFourth] = useState(false);
@@ -37,4 +37,3 @@ const HardFacts: React.FC = () => {
         </div>
     )
 }
-export default HardFacts;

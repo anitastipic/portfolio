@@ -1,6 +1,4 @@
-import React from "react";
-
-const HomeLogo: React.FC = () => {
+export default function HomeLogo() {
     return (
         <div className="HomeLogoContainer h-[94vh] flex flex-col justify-center items-center">
             <img src="/logo.png" className="h-[60vh] w-auto"/>
@@ -12,4 +10,3 @@ const HomeLogo: React.FC = () => {
         </div>
     )
 }
-export default HomeLogo
