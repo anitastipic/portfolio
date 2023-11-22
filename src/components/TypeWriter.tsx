@@ -14,8 +14,6 @@ export default function TypeWriter({text, typingDelay = 100, className = '', onC
         let currentIndex = 0;
         const timer = setInterval(() => {
             setDisplayedText((prev) => prev + text.charAt(currentIndex));
-            console.log(currentIndex);
-            console.log(text.charAt(currentIndex));
             currentIndex++;
             if (currentIndex >= text.length) {
                 clearInterval(timer);
