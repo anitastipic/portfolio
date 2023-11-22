@@ -4,7 +4,6 @@ export default function Memory() {
     const [rows, setRows] = useState<React.ReactElement[][]>([]);
     const totalCards = 10;
     const elementsPerRow = 5;
-    const totalRows = Math.ceil(totalCards/elementsPerRow);
 
     useEffect(() => {
         const fullRows: React.ReactElement[][] = [];
@@ -17,7 +16,7 @@ export default function Memory() {
                     fullRows.push([...currentRow]);
                     currentRow = [];
                 }
-                currentRow.push(<div key={`card${i}-${j}`} className="m-1 bg-amber-50 h-[15vh] w-[15vh] border-amber-500 border flex justify-center items-center"><img className="h-[10vh] w-auto" src={`/memory/card${i}.svg`} alt={`card image ${i}`}/></div>)
+                currentRow.push(<div key={`card${i}-${j}`} className="m-2 bg-white h-[15vh] w-[15vh] flex justify-center items-center"><img className="h-[10vh] w-auto" src={`/memory/card${i}.svg`} alt={`card image ${i}`}/></div>)
                 if(currentRow.length >= elementsPerRow) {
                     fullRows.push([...currentRow]);
                     currentRow = [];
@@ -33,7 +32,7 @@ export default function Memory() {
         <div className="bg-black h-screen p-10 flex items-center justify-center">
             <div className="flex flex-col">
             {rows.map((row, index) => (
-                <div key={`memoryrow-${index}`} className=" flex flex-row h-[15vh] mb-2">
+                <div key={`memoryrow-${index}`} className=" flex flex-row h-[15vh] mb-4">
                     {row}
                 </div>
             ))}
