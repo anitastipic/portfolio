@@ -1,6 +1,7 @@
 import Navbar from "./components/Navbar.tsx";
 import HomeLogo from "./components/HomeLogo.tsx";
 import HomeLogo2 from "./components/HomeLogo2.tsx";
+import HardFacts from "./components/HardFacts.tsx";
 
 function App() {
 
@@ -10,10 +11,9 @@ function App() {
             <div className="bg-black flex flex-col justify-normal
              items-center text-center">
                 <HomeLogo2/>
-                <HomeLogo/>
+                <HardFacts/>
             </div>
         </div>
     )
 }
-
-export default App
+export default App;
