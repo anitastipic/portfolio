@@ -6,8 +6,9 @@ export default function HardFacts() {
     const [showThird, setShowThird] = useState(false);
     const [showFourth, setShowFourth] = useState(false);
     return (
-        <div className="h-screen">
-            <div className=" flex flex-col items-start h-[30vh] w-[40vw] ml-[50vw] mt-[45vh]">
+        <div className="h-screen flex justify-center items-center">
+            <img className={"h-[55vh] w-auto"} src={"/anitaImage.svg"} alt={"anita picture"}/>
+            <div className=" flex flex-col items-start h-[30vh] w-[40vw] mt-16">
                 <TypeWriter
                     text={"Annita Stipic"}
                     className={"font-bold text-3xl text-amber-50 mb-3"}
