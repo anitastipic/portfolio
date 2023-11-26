@@ -79,7 +79,6 @@ export default function MemoryLogic() {
             );
             setOpenCards([]);
         }
-
         setCards(prevCards =>
             prevCards.map((prevCard, index) =>
                 index === cardIndex ? {...prevCard, chosen: true} : prevCard
