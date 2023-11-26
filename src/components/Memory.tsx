@@ -1,38 +1,37 @@
 import React, {useEffect, useState} from "react";
 
+type Card = {
+    index: string;
+    src: string;
+    chosen: boolean;
+    className: string;
+}
 
-export default function Memory() {
-    const [rows, setRows] = useState<React.ReactElement[][]>([]);
-    const totalCards = 10;
-    const elementsPerRow = 5;
 
-    useEffect(() => {
-        const fullRows: React.ReactElement[][] = [];
-        let currentRow: React.ReactElement[] = [];
-        const allCards: React.ReactElement[] = [];
+export default function MemoryLogic() {
+    const [cards, setCards] = useState<Card[]>([]);
 
-        for(let i = 1; i <= totalCards; i++) {
-            for(let j = 0; j <= 1; j++) {
-                allCards.push(<div key={`card${i}-${j}`} className="m-2 bg-white h-[15vh] w-[15vh] flex justify-center items-center"><img className="h-[10vh] w-auto" src={`/memory/card${i}.svg`} alt={`card image ${i}`}/></div>)
-            }
+    function generateCards(totalCardsPerType: number) {
+        const generatedCards: Card[] = [];
+        for (let i = 1; i <= totalCardsPerType; i++) {
+            generatedCards.push({
+                index: `card${i}-1`,
+                src: `/memory/card${i}.svg`,
+                chosen: false,
+                className: "cardimg object contain"
+            })
+            generatedCards.push({
+                index: `card${i}-2}`,
+                src: `/memory/card${i}.svg`,
+                chosen: false,
+                className: "cardimg object contain"
+            })
         }
+        shuffleArray(generatedCards);
+        return generatedCards;
+    }
 
-        shuffleArray(allCards);
-
-        for(let i = 0; i <= allCards.length; i++) {
-            currentRow.push(allCards[i]);
-            if(currentRow.length >= elementsPerRow) {
-                fullRows.push([...currentRow]);
-                currentRow = [];
-            }
-        }
-
-
-        setRows(fullRows)
-    }, [totalCards, elementsPerRow]);
-
-
-    function shuffleArray(array: React.ReactElement[]) {
+    function shuffleArray(array: Card[]) {
         for(let i = array.length - 1; i > 0; i--) {
             const j = Math.floor(Math.random() * i + 1);
             const temp = array[i];
@@ -41,15 +40,19 @@ export default function Memory() {
         }
     }
 
+    useEffect(() => {
+        setCards(generateCards(10));
+    }, []);
+
+
     return (
-        <div className="bg-black h-screen p-10 flex items-center justify-center">
-            <div className="flex flex-col">
-            {rows.map((row, index) => (
-                <div key={`memoryrow-${index}`} className=" flex flex-row h-[15vh] mb-4">
-                    {row}
-                </div>
-            ))}
+        <div className="h-screen w-screen flex items-center justify-center">
+            <div className="grid grid-cols-5 gap-3">
+                {cards.map((card, index) => (
+                    <div className="flex h-[150px] w-[150px] bg-white"><img key={index} src={card.src}
+                                                                            className={card.className}/></div>
+                ))}
             </div>
         </div>
-    );
+    )
 }
