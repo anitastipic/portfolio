@@ -8,8 +8,11 @@ type Card = {
     foundMatch: boolean;
 }
 
+type MemoryLogicProps = {
+    onGameWin: () => void;
+}
 
-export default function MemoryLogic() {
+export default function Memory({onGameWin}: MemoryLogicProps) {
     const [cards, setCards] = useState<Card[]>([]);
     const [openCards, setOpenCards] = useState<number[]>([]);
 
@@ -21,7 +24,7 @@ export default function MemoryLogic() {
     useEffect(() => {
         if (openCards.length === 2) {
             const [firstIndex, secondIndex] = openCards;
-            if (cards[firstIndex].src === cards[secondIndex].src) {
+            if (cards[firstIndex].src === cards[secondIndex].src && cards[firstIndex].index !== cards[secondIndex].index) {
                 setCards(prevCards =>
                     prevCards.map((card, index) =>
                         index === firstIndex || index === secondIndex
@@ -32,6 +35,14 @@ export default function MemoryLogic() {
             }
         }
     }, [openCards, cards]);
+
+    useEffect(() => {
+        const allMatched = cards.filter(card => card.foundMatch);
+        if (allMatched.length == 20) {
+            console.log("Game won, calling onGameWin", allMatched);
+            onGameWin();
+        }
+    }, [cards, onGameWin]);
 
     function generateCards(totalCardsPerType: number) {
         const generatedCards: Card[] = [];
@@ -79,6 +90,7 @@ export default function MemoryLogic() {
             );
             setOpenCards([]);
         }
+
         setCards(prevCards =>
             prevCards.map((prevCard, index) =>
                 index === cardIndex ? {...prevCard, chosen: true} : prevCard
@@ -89,15 +101,16 @@ export default function MemoryLogic() {
 
 
     return (
-        <div className="h-screen w-screen flex items-center justify-center">
+        <div className="h-screen w-screen flex flex-col items-center justify-center">
+            <p className="text-3xl text-white mb-10">Skillset Memory</p>
             <div className="grid grid-cols-5 gap-3">
                 {cards.map((card, index) => (
                     <div key={index}
-                         className={`flex h-[150px] w-[150px] bg-white`}
+                         className={`flex h-[110px] w-[110px] bg-white`}
                          onClick={() => handleCardClick(index)}>
                         {card.chosen &&
                             <img key={index} src={card.src}
-                                 className={`${card.className} ${card.foundMatch ? " border border-2 border-amber-500" : ""}`}/>}
+                                 className={`${card.className} ${card.foundMatch ? "border-4 border-green-500" : "border-4 border-pink-500"}`}/>}
                     </div>
                 ))}
             </div>
