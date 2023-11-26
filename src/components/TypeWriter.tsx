@@ -11,10 +11,12 @@ export default function TypeWriter({text, typingDelay = 100, className = '', onC
     const [displayedText, setDisplayedText] = useState('');
 
     useEffect(() => {
-        let currentIndex = 0;
+        let currentIndex = -1;
         const timer = setInterval(() => {
-            setDisplayedText((prev) => prev + text.charAt(currentIndex));
             currentIndex++;
+            setDisplayedText((prev) => {
+                return prev + text.charAt(currentIndex)
+            });
             if (currentIndex >= text.length) {
                 clearInterval(timer);
                 if(onComplete) {
