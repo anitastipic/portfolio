@@ -5,27 +5,31 @@ type TypeWriterProps = {
     typingDelay?: number;
     className?: string;
     onComplete?: () => void;
+    startTyping: boolean;
 }
 
-export default function TypeWriter({text, typingDelay = 100, className = '', onComplete}: TypeWriterProps)  {
+export default function TypeWriter({text, typingDelay = 100, className = '', onComplete, startTyping}: TypeWriterProps)  {
     const [displayedText, setDisplayedText] = useState('');
 
     useEffect(() => {
-        let currentIndex = -1;
-        const timer = setInterval(() => {
-            currentIndex++;
-            setDisplayedText((prev) => {
-                return prev + text.charAt(currentIndex)
-            });
-            if (currentIndex >= text.length) {
-                clearInterval(timer);
-                if(onComplete) {
-                    onComplete();
+        if (startTyping) {
+            let currentIndex = -1;
+            const timer = setInterval(() => {
+                currentIndex++;
+                setDisplayedText((prev) => prev + text.charAt(currentIndex));
+                if (currentIndex >= text.length - 1) {
+                    clearInterval(timer);
+                    if(onComplete) {
+                        onComplete();
+                    }
                 }
-            }
-        }, typingDelay);
-        return () => clearInterval(timer);
-    }, [text, typingDelay]);
+            }, typingDelay);
+            return () => clearInterval(timer);
+        } else {
+            // Reset the typing effect if startTyping becomes false
+            setDisplayedText('');
+        }
+    }, [text, typingDelay, startTyping]);
 
     return (
         <div className={className}>{displayedText}</div>

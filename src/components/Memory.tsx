@@ -39,7 +39,6 @@ export default function Memory({onGameWin}: MemoryLogicProps) {
     useEffect(() => {
         const allMatched = cards.filter(card => card.foundMatch);
         if (allMatched.length == 20) {
-            console.log("Game won, calling onGameWin", allMatched);
             onGameWin();
         }
     }, [cards, onGameWin]);
