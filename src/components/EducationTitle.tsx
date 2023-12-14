@@ -7,8 +7,9 @@ type TitleProps = {
     text: string;
 }
 
-export default function EducationTitle({ text }: TitleProps) {
+export default function EducationTitle({text}: TitleProps) {
     const [startTyping, setStartTyping] = useState(false);
+    const [showStatic, setShowStatic] = useState(false);
 
     useEffect(() => {
         gsap.registerPlugin(ScrollTrigger);
@@ -19,7 +20,10 @@ export default function EducationTitle({ text }: TitleProps) {
             end: '+=500',
             pin: true,
             onEnter: () => setStartTyping(true),
-            onLeave: () => setStartTyping(false),
+            onLeave: () => {
+                setStartTyping(false)
+                setShowStatic(true);
+            },
         });
         return () => {
             ScrollTrigger.getAll().forEach((trigger) => trigger.kill());
@@ -27,13 +31,18 @@ export default function EducationTitle({ text }: TitleProps) {
     }, []);
 
     return (
-        <div id="pin" className={`h-screen w-screen flex items-center justify-center`}>
-            <TypeWriter
-                text={text}
-                className={'text-5xl font-bold text-white'}
-                typingDelay={120}
-                startTyping={startTyping}
-            />
+        <div id="pin" className="text-5xl font-bold text-white h-screen w-screen flex items-center justify-center">
+            {showStatic
+                ? <div>{text}</div>
+                : <TypeWriter
+                    text={text}
+                    typingDelay={120}
+                    startTyping={startTyping}
+                />
+            }
         </div>
-    );
+
+
+    )
+        ;
 }
