@@ -1,4 +1,4 @@
-import HomeLogo2 from "./HomeLogo.tsx";
+import HomeLogo from "./HomeLogo.tsx";
 import Memory from "./Memory.tsx"
 import {useState} from "react";
 import WonMemory from "./WonMemory.tsx";
@@ -15,7 +15,7 @@ export default function Home() {
     return (
         <div className="bg-black">
             <div className="bg-black">
-                <HomeLogo2/>
+                <HomeLogo/>
                 <Title
                     text={'Education'}
                 />
