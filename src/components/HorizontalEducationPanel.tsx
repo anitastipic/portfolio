@@ -34,7 +34,7 @@ export default function HorizontalEducationPanel() {
                 <div className="panel h-[80vh] min-h-screen"></div>
                 <div className="panel h-[100vh] min-w-[110vw] bg-black flex items-center">
                     <img
-                        src="/educationImages/kindergarden.svg"
+                        src="public/educationImages/kindergarden.svg"
                         alt="childgroup and childcare teacher"
                         className="h-[60vh] "
                     />
@@ -45,7 +45,7 @@ export default function HorizontalEducationPanel() {
                 </div>
                 <div className="panel h-[100vh] min-w-[110vw] bg-black flex items-center ">
                     <img
-                        src="/educationImages/books.svg"
+                        src="public/educationImages/books.svg"
                         alt="childgroup and childcare teacher"
                         className="w-[50vw]"/>
                     <div className="text-white flex flex-col items-center">
@@ -54,7 +54,7 @@ export default function HorizontalEducationPanel() {
                     </div>
                 </div>
                 <div className="panel h-[100vh] min-w-[110vw] bg-black flex items-center">
-                    <img src="/educationImages/development.svg"
+                    <img src="public/educationImages/development.svg"
                          alt="childgroup and childcare teacher"
                          className="h-[50vh]"/>
                     <div className="text-white flex flex-col items-center">
