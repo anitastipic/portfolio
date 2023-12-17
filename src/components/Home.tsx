@@ -1,8 +1,8 @@
-import HomeLogo2 from "./HomeLogo2.tsx";
+import HomeLogo2 from "./HomeLogo.tsx";
 import Memory from "./Memory.tsx"
 import {useState} from "react";
 import WonMemory from "./WonMemory.tsx";
-import EducationTitle from "./EducationTitle.tsx";
+import Title from "./Title.tsx";
 import HorizontalEducationPanel from "./HorizontalEducationPanel.tsx";
 
 export default function Home() {
@@ -16,7 +16,7 @@ export default function Home() {
         <div className="bg-black">
             <div className="bg-black">
                 <HomeLogo2/>
-                <EducationTitle
+                <Title
                     text={'Education'}
                 />
                 <HorizontalEducationPanel/>
