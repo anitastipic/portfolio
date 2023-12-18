@@ -1,12 +1,8 @@
-import {useEffect, useLayoutEffect} from "react";
+import {useLayoutEffect} from "react";
 import {gsap} from "gsap";
 import ScrollTrigger from "gsap/ScrollTrigger";
 
 export default function HorizontalEducationPanel() {
-
-    useEffect(() => {
-        gsap.registerPlugin(ScrollTrigger);
-    }, [])
 
     useLayoutEffect(() => {
         const sections: HTMLDivElement[] = gsap.utils.toArray(".panel");
@@ -31,10 +27,10 @@ export default function HorizontalEducationPanel() {
     return (
         <div id={"panelContainer"} className="w-screen overflow-x-hidden relative">
             <div id={"wrapper"} className="flex bg-black min-w-[600vw] flex-nowrap overflow-hidden">
-                <div className="panel h-[80vh] min-h-screen"></div>
+                <div className="panel h-[100vh] w-[100vw]"></div>
                 <div className="panel h-[100vh] min-w-[110vw] bg-black flex items-center">
                     <img
-                        src="public/educationImages/kindergarden.svg"
+                        src="educationImages/kindergarden.svg"
                         alt="childgroup and childcare teacher"
                         className="h-[60vh] "
                     />
@@ -45,7 +41,7 @@ export default function HorizontalEducationPanel() {
                 </div>
                 <div className="panel h-[100vh] min-w-[110vw] bg-black flex items-center ">
                     <img
-                        src="public/educationImages/books.svg"
+                        src="educationImages/books.svg"
                         alt="childgroup and childcare teacher"
                         className="w-[50vw]"/>
                     <div className="text-white flex flex-col items-center">
@@ -54,7 +50,7 @@ export default function HorizontalEducationPanel() {
                     </div>
                 </div>
                 <div className="panel h-[100vh] min-w-[110vw] bg-black flex items-center">
-                    <img src="public/educationImages/development.svg"
+                    <img src="educationImages/development.svg"
                          alt="childgroup and childcare teacher"
                          className="h-[50vh]"/>
                     <div className="text-white flex flex-col items-center">
@@ -62,7 +58,7 @@ export default function HorizontalEducationPanel() {
                         <p>Jan 2023 - Dec 2023</p>
                     </div>
                 </div>
-                <div className="panel h-[30vh] min-h-screen"></div>
+                <div className="panel h-[50vh] w-[80vw] min-h-screen"></div>
             </div>
         </div>
 
