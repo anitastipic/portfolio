@@ -48,14 +48,14 @@ export default function Memory({onGameWin}: MemoryLogicProps) {
         for (let i = 1; i <= totalCardsPerType; i++) {
             generatedCards.push({
                 index: `card${i}-1`,
-                src: `/memory/card${i}.svg`,
+                src: `memory/card${i}.svg`,
                 chosen: false,
                 className: "cardimg object contain",
                 foundMatch: false
             })
             generatedCards.push({
                 index: `card${i}-2}`,
-                src: `/memory/card${i}.svg`,
+                src: `memory/card${i}.svg`,
                 chosen: false,
                 className: "cardimg object contain",
                 foundMatch: false
@@ -101,11 +101,10 @@ export default function Memory({onGameWin}: MemoryLogicProps) {
 
     return (
         <div className="h-screen w-screen flex flex-col items-center justify-center">
-            <p className="text-3xl text-white mb-10">Skillset Memory</p>
             <div className="grid grid-cols-5 gap-3">
                 {cards.map((card, index) => (
                     <div key={index}
-                         className={`flex h-[110px] w-[110px] bg-white`}
+                         className={`flex h-[120px] w-[120px] bg-white`}
                          onClick={() => handleCardClick(index)}>
                         {card.chosen &&
                             <img key={index} src={card.src}
