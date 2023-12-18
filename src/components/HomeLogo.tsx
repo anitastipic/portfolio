@@ -11,10 +11,13 @@ export default function HomeLogo2() {
     }, []);
 
     return (
-        <div className="HomeLogoContainer h-[100vh] w-auto flex flex-col justify-center items-center">
-            <video ref={videoRef} className="h-[55vh] w-auto" controls={false} loop={false} autoPlay={true} muted={true}
-                   src={"public/ASlogo.mp4"}></video>
-            <div className="h-[20vh]">
+        <div className="">
+            <div className="HomeLogoContainer h-[100vh] w-auto flex flex-col items-center justify-center">
+                <video ref={videoRef} className="h-[50vh] w-auto -mt-[5vh]" controls={false} loop={false} autoPlay={true}
+                       muted={true}
+                       src={"ASlogo.mp4"}></video>
+            </div>
+            <div className="h-[20vh] -mt-[20vh] flex items-center justify-center">
                 <svg className="w-5 h-5 text-amber-50 dark:text-white opacity-50 animate-bounce" aria-hidden="true"
                      xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 10 12">
                     <path stroke="currentColor" strokeLinecap="round" strokeLinejoin="round" strokeWidth="2"
