@@ -1,8 +1,8 @@
 import HomeLogo from "./HomeLogo.tsx";
 import Memory from "./Memory.tsx"
 import {useState} from "react";
-import WonMemory from "./WonMemory.tsx";
 import Title from "./Title.tsx";
+import SkillsetTitle from "./SkillsetTitle.tsx";
 import HorizontalEducationPanel from "./HorizontalEducationPanel.tsx";
 
 export default function Home() {
@@ -12,6 +12,7 @@ export default function Home() {
         setWonMemory(!wonMemory);
     }
 
+
     return (
         <div className="bg-black">
             <div className="bg-black">
@@ -20,7 +21,10 @@ export default function Home() {
                     text={'Education'}
                 />
                 <HorizontalEducationPanel/>
-                {wonMemory ? <WonMemory/> : <Memory onGameWin={handleGameWin}/>}
+                <SkillsetTitle
+                    text={'Skillset Memory'}
+                />
+                <Memory onGameWin={handleGameWin}/>
             </div>
         </div>
     )
